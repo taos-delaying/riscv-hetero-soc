@@ -1,0 +1,557 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o (fft32_q15)
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o) (riscv_cfft_q15)
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o) (riscv_radix4_butterfly_q15)
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o) (riscv_bitreversal_16)
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o) (riscv_bitreversal_q15)
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o) (riscv_cfft_sR_q15_len32)
+/home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o) (realCoefBQ15)
+/home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a(muldi3.o)
+                              /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o) (__mulsi3)
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .text.memcpy   0x0000000000000000       0x24 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .text.memset   0x0000000000000000       0x20 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .text.memmove  0x0000000000000000       0x4c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .text.memcmp   0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+ .text.riscv_cfft_radix4_q15
+                0x0000000000000000       0x98 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+ .text.riscv_bitreversal_64
+                0x0000000000000000       0x9c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+ .text.riscv_bitreversal_32
+                0x0000000000000000       0x7c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .text.riscv_bitreversal_f32
+                0x0000000000000000      0x13c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .text.riscv_bitreversal_q31
+                0x0000000000000000       0xf0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .text.riscv_bitreversal_q15
+                0x0000000000000000       0x98 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal.o)
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len1024
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len128
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len16
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len2048
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len256
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len32
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len4096
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len512
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f32_len64
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len1024
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len128
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len16
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len2048
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len256
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len32
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len4096
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len512
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_f64_len64
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len1024
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len128
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len16
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len2048
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len256
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len4096
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len512
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q15_len64
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len1024
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len128
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len16
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len2048
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len256
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len32
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len4096
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len512
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_cfft_sR_q31_len64
+                0x0000000000000000       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len1024
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len128
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len2048
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len256
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len32
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len4096
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len512
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f32_len64
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len1024
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len128
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len2048
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len256
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len32
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len4096
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len512
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_fast_sR_f64_len64
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len1024
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len128
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len2048
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len256
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len32
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len4096
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len512
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len64
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q15_len8192
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len1024
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len128
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len2048
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len256
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len32
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len4096
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len512
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len64
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .rodata.riscv_rfft_sR_q31_len8192
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+ .text          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ15_128
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ15_2048
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ15_512
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ15_8192
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ31_128
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ31_2048
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ31_512
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.WeightsQ31_8192
+                0x0000000000000000    0x10000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.Weights_128
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.Weights_2048
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.Weights_512
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.Weights_8192
+                0x0000000000000000    0x10000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ15_128
+                0x0000000000000000      0x100 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ15_2048
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ15_512
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ15_8192
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ31_128
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ31_2048
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ31_512
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factorsQ31_8192
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factors_128
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factors_2048
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factors_512
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.cos_factors_8192
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.realCoefA
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.realCoefAQ15
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.realCoefAQ31
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.realCoefB
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.realCoefBQ15
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.realCoefBQ31
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable1024
+                0x0000000000000000      0xe10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable128
+                0x0000000000000000      0x1a0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable16
+                0x0000000000000000       0x28 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable2048
+                0x0000000000000000     0x1dc0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable256
+                0x0000000000000000      0x370 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable32
+                0x0000000000000000       0x60 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable4096
+                0x0000000000000000     0x1f80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable512
+                0x0000000000000000      0x380 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable64
+                0x0000000000000000       0x70 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_1024
+                0x0000000000000000      0x7c0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_128
+                0x0000000000000000       0xe0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_16
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_2048
+                0x0000000000000000      0xf80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_256
+                0x0000000000000000      0x1e0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_32
+                0x0000000000000000       0x30 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_4096
+                0x0000000000000000     0x1f80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_512
+                0x0000000000000000      0x3c0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTableF64_64
+                0x0000000000000000       0x70 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_1024
+                0x0000000000000000      0x7c0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_128
+                0x0000000000000000       0xe0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_16
+                0x0000000000000000       0x18 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_2048
+                0x0000000000000000      0xf80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_256
+                0x0000000000000000      0x1e0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_4096
+                0x0000000000000000     0x1f80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_512
+                0x0000000000000000      0x3c0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevIndexTable_fixed_64
+                0x0000000000000000       0x70 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvBitRevTable
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvRecipTableQ15
+                0x0000000000000000       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.riscvRecipTableQ31
+                0x0000000000000000      0x100 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.sinTable_f32
+                0x0000000000000000      0x804 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.sinTable_q15
+                0x0000000000000000      0x402 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.sinTable_q31
+                0x0000000000000000      0x804 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.sqrt_initial_lut_q15
+                0x0000000000000000       0x20 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.sqrt_initial_lut_q31
+                0x0000000000000000       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_1024
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_128
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_16
+                0x0000000000000000      0x100 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_2048
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_256
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_32
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_4096
+                0x0000000000000000    0x10000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_512
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_64
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_1024
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_128
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_2048
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_256
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_32
+                0x0000000000000000      0x100 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_4096
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_512
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoefF64_rfft_64
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_1024
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_1024_q15
+                0x0000000000000000      0xc00 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_1024_q31
+                0x0000000000000000     0x1800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_128
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_128_q15
+                0x0000000000000000      0x180 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_128_q31
+                0x0000000000000000      0x300 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_16
+                0x0000000000000000       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_16_q15
+                0x0000000000000000       0x30 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_16_q31
+                0x0000000000000000       0x60 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_2048
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_2048_q15
+                0x0000000000000000     0x1800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_2048_q31
+                0x0000000000000000     0x3000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_256
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_256_q15
+                0x0000000000000000      0x300 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_256_q31
+                0x0000000000000000      0x600 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_32
+                0x0000000000000000      0x100 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_32_q31
+                0x0000000000000000       0xc0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_4096
+                0x0000000000000000     0x8000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_4096_q15
+                0x0000000000000000     0x3000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_4096_q31
+                0x0000000000000000     0x6000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_512
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_512_q15
+                0x0000000000000000      0x600 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_512_q31
+                0x0000000000000000      0xc00 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_64
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_64_q15
+                0x0000000000000000       0xc0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_64_q31
+                0x0000000000000000      0x180 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_1024
+                0x0000000000000000     0x1000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_128
+                0x0000000000000000      0x200 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_2048
+                0x0000000000000000     0x2000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_256
+                0x0000000000000000      0x400 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_32
+                0x0000000000000000       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_4096
+                0x0000000000000000     0x4000 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_512
+                0x0000000000000000      0x800 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .rodata.twiddleCoef_rfft_64
+                0x0000000000000000      0x100 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .comment       0x0000000000000000       0x34 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+ .data          0x0000000000000000        0x0 /home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a(muldi3.o)
+ .bss           0x0000000000000000        0x0 /home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a(muldi3.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x0000000000000000 0x0000000000010000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000001000                __stack_size = 0x1000
+                0x0000000000010000                __stack_top = (ORIGIN (RAM) + LENGTH (RAM))
+                0x000000000000f000                __stack_bottom = (__stack_top - __stack_size)
+
+.text           0x0000000000000000     0x1bf8
+ *(.text.start)
+ .text.start    0x0000000000000000       0x44 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+                0x0000000000000000                _start
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text.startup.main
+                0x0000000000000044       0x50 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000000044                main
+ .text.fft32_q15
+                0x0000000000000094       0x1c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+                0x0000000000000094                fft32_q15
+ .text.riscv_cfft_radix4by2_q15
+                0x00000000000000b0      0x23c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                0x00000000000000b0                riscv_cfft_radix4by2_q15
+ .text.riscv_cfft_radix4by2_inverse_q15
+                0x00000000000002ec      0x23c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                0x00000000000002ec                riscv_cfft_radix4by2_inverse_q15
+ .text.riscv_cfft_q15
+                0x0000000000000528      0x194 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                0x0000000000000528                riscv_cfft_q15
+ .text.riscv_radix4_butterfly_q15
+                0x00000000000006bc      0xa5c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+                0x00000000000006bc                riscv_radix4_butterfly_q15
+ .text.riscv_radix4_butterfly_inverse_q15
+                0x0000000000001118      0xa40 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+                0x0000000000001118                riscv_radix4_butterfly_inverse_q15
+ .text.riscv_bitreversal_16
+                0x0000000000001b58       0x7c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+                0x0000000000001b58                riscv_bitreversal_16
+ .text          0x0000000000001bd4       0x24 /home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a(muldi3.o)
+                0x0000000000001bd4                __mulsi3
+                0x0000000000001bf8                . = ALIGN (0x4)
+
+.rodata         0x0000000000001bf8       0xa0
+ *(.rodata .rodata.* .srodata .srodata.* .gnu.linkonce.r.*)
+ .rodata.riscv_cfft_sR_q15_len32
+                0x0000000000001bf8       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+                0x0000000000001bf8                riscv_cfft_sR_q15_len32
+ .rodata.riscvBitRevIndexTable_fixed_32
+                0x0000000000001c08       0x30 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+                0x0000000000001c08                riscvBitRevIndexTable_fixed_32
+ .rodata.twiddleCoef_32_q15
+                0x0000000000001c38       0x60 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+                0x0000000000001c38                twiddleCoef_32_q15
+                0x0000000000001c98                . = ALIGN (0x4)
+
+.rela.dyn       0x0000000000001c98        0x0
+ .rela.text.start
+                0x0000000000001c98        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+
+.data           0x0000000000001c98        0x0
+                0x0000000000001c98                __data_start = .
+ *(.data .data.* .gnu.linkonce.d.*)
+                0x0000000000001c98                . = ALIGN (0x4)
+                0x0000000000002498                __global_pointer$ = (. + 0x800)
+ *(.sdata .sdata.* .sdata2 .sdata2.*)
+                0x0000000000001c98                . = ALIGN (0x4)
+                0x0000000000001c98                __data_end = .
+                0x0000000000001c98                __image_end = .
+
+.bss            0x0000000000001c98       0x84
+                0x0000000000001c98                __bss_start = .
+ *(.sbss .sbss.* .sbss2 .sbss2.* .scommon)
+ .sbss.fft_example_done
+                0x0000000000001c98        0x4 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000001c98                fft_example_done
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss.fft_samples
+                0x0000000000001c9c       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000001c9c                fft_samples
+ *(COMMON)
+                0x0000000000001d1c                . = ALIGN (0x4)
+                0x0000000000001d1c                __bss_end = .
+                0x0000000000001d1c                __static_end = .
+
+.stack          0x000000000000f000     0x1000
+                0x0000000000010000                . = (. + __stack_size)
+ *fill*         0x000000000000f000     0x1000 
+
+.riscv.attributes
+ *(.riscv.attributes)
+
+/DISCARD/
+ *(.comment .note.GNU-stack)
+ *(.eh_frame .eh_frame.* .eh_frame_hdr .gcc_except_table .gcc_except_table.*)
+                0x0000000000000001                ASSERT ((_start == ORIGIN (RAM)), Reset entry must be at address 0)
+                0x0000000000000001                ASSERT ((__static_end <= __stack_bottom), Code/data/BSS exceed 60 KiB; stack would overlap)
+                0x0000000000000001                ASSERT ((((__bss_start & 0x3) == 0x0) && ((__bss_end & 0x3) == 0x0)), BSS must be word-aligned)
+                0x0000000000000001                ASSERT (((__image_end & 0x3) == 0x0), Loadable image must end on a word boundary)
+                0x0000000000000001                ASSERT (((__stack_top & 0xf) == 0x0), Stack top must satisfy the ILP32 ABI alignment)
+LOAD /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+LOAD /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+LOAD /home/taoshuo/riscv-hetero-soc/build/fft32/sw/runtime.o
+LOAD /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a
+LOAD /home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a
+OUTPUT(/home/taoshuo/riscv-hetero-soc/build/fft32/sw/firmware.elf elf32-littleriscv)

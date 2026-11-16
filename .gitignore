@@ -1,4 +1,7 @@
-/build/
+/build/*
+!/build/**/**/*.hex
+!/build/**/**/*.map
+!/build/**/**/*.elf
 /.Xil/
 /xsim.dir/
 *.jou
