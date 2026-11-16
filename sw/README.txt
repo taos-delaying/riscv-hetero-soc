@@ -55,8 +55,8 @@ asm volatile 和 memory clobber 描述了指令副作用和对缓冲区的读写
 ----------------------------
 在项目根目录执行，使用 GNU Make、Python 3 和提供 mkdir/mv 的 POSIX shell，适用于服务器或 WSL：
 
-    make -C sw FFT_IMPL=sw TOOLCHAIN_PREFIX=riscv64-unknown-elf-
-    make -C sw FFT_IMPL=hw TOOLCHAIN_PREFIX=riscv64-unknown-elf-
+    make -C sw FFT_IMPL=sw TOOLCHAIN_PREFIX=/home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/riscv-none-embed-
+    make -C sw FFT_IMPL=hw TOOLCHAIN_PREFIX=/home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/riscv-none-embed-
 
 工具链前缀应按实际安装调整。前缀含 riscv64 也可以，但该工具链必须支持
 -march=rv32i -mabi=ilp32，并提供标准头文件和匹配 RV32I/ILP32 的 libgcc。
