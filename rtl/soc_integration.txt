@@ -1,0 +1,109 @@
+PicoRV32 + 32 点 FFT：当前版本连接说明
+
+1. 文件和模块层次
+
+工程顶层为 soc_top。
+
+soc_top
+  cpu  : picorv32_new
+  fft  : pcpi_dispatch
+    fft32_dit2_inst1 : fft32_dit2（沿用现有 FFT 及其子模块）
+  sram : soc_sram_dp
+
+CPU 与 dispatcher 是平级模块，CPU 内不实例化 dispatcher。
+PCPI 传递指令、源地址、目的地址和执行状态；样本数据由共享 RAM 传递。
+CPU 的 valid/ready 到同步 RAM 的小转换逻辑直接写在 soc_top 内。
+
+2. CPU 相对上游的改动范围
+
+基准：官方 YosysHQ/picorv32，提交
+ef203c2b0a3fb793280f5114941416c425c5b461
+https://github.com/YosysHQ/picorv32/blob/ef203c2b0a3fb793280f5114941416c425c5b461/picorv32.v
+
+官方 picorv32.v Git blob：cc45fa998f1857b06a856ea59b931f6c37e06b34
+已与本工程 ip/picorv32/picorv32.v 对照确认一致。
+
+保留：原 CPU 功能参数及默认值、执行状态机、寄存器堆、指令译码、
+访存逻辑、外部 PCPI 接口和超时处理、可配置乘除法/IRQ/trace 等功能。
+generate 和 REGS_INIT_ZERO 的 initial 属于原有功能实现，予以保留。
+保留版权和许可声明。
+
+清理：仿真调试打印和辅助信号、形式验证/RVFI/assertion、测试故障注入、
+相关预处理分支、外置寄存器堆示例，以及不用于本顶层的 AXI/Wishbone 包装。
+预处理分支选择正常硬件实现，寄存器堆选择原版内置实现。
+
+改名：主模块改为 picorv32_new；同文件中的三个乘除法辅助模块统一使用
+picorv32_new_ 前缀，避免与原版重名。FFT 不加入 CPU 的内部仲裁逻辑。
+
+soc_top 仅覆盖 ENABLE_PCPI=1、PROGADDR_RESET、STACKADDR。
+其他 CPU 配置沿用上游默认值：本顶层默认不启用 M/C 扩展、IRQ 或 trace。
+保留可选模块源码不等于默认实例化这些硬件。
+
+3. 共享 RAM 和启动
+
+soc_sram_dp 为 16384 x 32 bit，共 64 KiB 的双口同步 RAM 描述。
+CPU 使用 A 口，FFT 使用 B 口，两个端口使用相同 clk。
+字节地址范围：0x00000000 至 0x0000ffff。
+CPU 是 32 位字节地址，RAM 是 14 位字下标，对应 mem_addr[15:2]。
+四个字节写使能保留，支持 CPU 的 byte/halfword/word store。
+
+默认复位 PC=0x00000000，默认初始栈指针=0x00010000（RAM 末尾后一字节，
+供向低地址增长的栈使用）。程序链接地址和数据布局应与上述配置一致。
+当前只有 RAM 地址空间，未实现 UART、GPIO 或其他 MMIO 外设。
+
+MEM_INIT_FILE 参数指定 readmemh 格式的程序镜像，每项为一个 32 位十六进制
+字。它是 FPGA 配置时初始化机制；空字符串不加载程序，复位也不清空或重载 RAM。
+本次未生成软件镜像，需要你后续提供与此地址布局匹配的程序。
+soc_sram_dp 是 FPGA RAM 推断描述；用于 ASIC 时，应换成对应 SRAM 宏和加载方式。
+
+CPU 访存：第一个沿由 RAM 接收请求、更新读数据并置 pending；
+第二个沿 CPU 采样 mem_ready 和读数据，同时禁止 RAM 重复接收这次请求。
+CPU 地址越界时锁存 mem_fault，禁止该次 RAM 访问，并保持不应答直到复位。
+顶层 trap 是 CPU 自身 trap 与 mem_fault 的或；mem_fault 不是注入 CPU 的异常。
+
+4. FFT 使用约定
+
+沿用现有 pcpi_dispatch，不修改其实现；当前仅按 32 点功能使用。
+rs1 是输入缓冲区字节地址，rs2 是输出缓冲区字节地址。
+二者均需 4 字节对齐；每个缓冲区需要连续 128 字节，起始地址不大于 0x0000ff80。
+dispatcher 当前直接截取 [15:2]，不会检查高位、对齐或缓冲区跨界，需由软件保证。
+每个样本占一字，低 16 位为实部，高 16 位为虚部，沿用现有定点格式。
+
+只发送当前 32 点编码：opcode=0101011，funct3=000，bits[31:29]=010，
+bits[28:25]=0101。pcpi_wr=0，因此不向 CPU 通用寄存器写回结果，结果写入 RAM。
+指令阻塞到 FFT 结果写回完成，再通过 PCPI ready 结束。
+
+RAM B 口每次使能都必须在该沿接受请求，读数据在该沿之后更新；没有 ready/stall。
+当前 RAM 接口满足这一固定时序。替换为外部 SRAM 宏时需保持同样的延迟约定。
+双口同字地址同时访问且其中一个端口写入的情况不受支持，须由存储布局避免。
+CPU 可能在等待 PCPI 时预取指令，因此代码、栈与 FFT 缓冲区应明确分配，
+FFT 输出不能覆盖正在执行或预取的代码。CPU 在 FFT 指令结束后再使用结果。
+
+5. 顶层端口和复位
+
+clk：系统时钟。
+resetn：低有效，至少覆盖一个上升沿；内部再延后两个时钟释放公共复位，
+        让 CPU、dispatcher 和访存转换逻辑一起恢复，并清空 dispatcher 的等待流水。
+trap：CPU trap 或 CPU 访存越界故障。
+mem_fault：仅表示 CPU 访存越界故障，保持到复位。
+fft_done：PCPI 完成握手期间的有效脉冲，可供外部观察，不是中断请求。
+
+6. 需要加入工程的设计源
+
+rtl/picorv32_new.v
+rtl/soc_top.v
+rtl/soc_sram_dp.v
+rtl/pcpi_dispatch.v
+ip/fft/fft32_dit2.v
+ip/fft/fft16_dit2.v
+ip/fft/fft8_dit2.v
+ip/fft/fft4_dit4.v
+ip/fft/butterfly_radix2_dit.v
+
+包含目录：ip/fft；所需头文件：common_func.vh。
+fft16_dit2 是 fft32_dit2 的内部子模块，仍需加入；这不代表开放了 16 点指令功能。
+新顶层不依赖 rtl/picorv32.v 或 ip/picorv32/picorv32.v。
+不要把 tb_fft32_dit2.v 当作设计顶层。
+
+本次仅进行了源码阅读和文本差异审查，没有运行编译、仿真、综合或 HDL 检查工具。
+硬件运行结果尚未验证。
