@@ -2,6 +2,7 @@
 !/build/**/**/*.hex
 !/build/**/**/*.map
 !/build/**/**/*.elf
+/.vscode/
 /.Xil/
 /xsim.dir/
 *.jou
