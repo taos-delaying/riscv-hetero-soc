@@ -459,80 +459,83 @@ Linker script and memory map
                 0x0000000000010000                __stack_top = (ORIGIN (RAM) + LENGTH (RAM))
                 0x000000000000f000                __stack_bottom = (__stack_top - __stack_size)
 
-.text           0x0000000000000000     0x1bf8
+.text           0x0000000000000000     0x1c1c
  *(.text.start)
  .text.start    0x0000000000000000       0x44 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
                 0x0000000000000000                _start
  *(.text .text.* .gnu.linkonce.t.*)
  .text.startup.main
-                0x0000000000000044       0x50 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000000044       0x74 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
                 0x0000000000000044                main
  .text.fft32_q15
-                0x0000000000000094       0x1c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
-                0x0000000000000094                fft32_q15
+                0x00000000000000b8       0x1c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(fft32_backend.o)
+                0x00000000000000b8                fft32_q15
  .text.riscv_cfft_radix4by2_q15
-                0x00000000000000b0      0x23c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
-                0x00000000000000b0                riscv_cfft_radix4by2_q15
+                0x00000000000000d4      0x23c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                0x00000000000000d4                riscv_cfft_radix4by2_q15
  .text.riscv_cfft_radix4by2_inverse_q15
-                0x00000000000002ec      0x23c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
-                0x00000000000002ec                riscv_cfft_radix4by2_inverse_q15
+                0x0000000000000310      0x23c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                0x0000000000000310                riscv_cfft_radix4by2_inverse_q15
  .text.riscv_cfft_q15
-                0x0000000000000528      0x194 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
-                0x0000000000000528                riscv_cfft_q15
+                0x000000000000054c      0x194 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_q15.o)
+                0x000000000000054c                riscv_cfft_q15
  .text.riscv_radix4_butterfly_q15
-                0x00000000000006bc      0xa5c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
-                0x00000000000006bc                riscv_radix4_butterfly_q15
+                0x00000000000006e0      0xa5c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+                0x00000000000006e0                riscv_radix4_butterfly_q15
  .text.riscv_radix4_butterfly_inverse_q15
-                0x0000000000001118      0xa40 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
-                0x0000000000001118                riscv_radix4_butterfly_inverse_q15
+                0x000000000000113c      0xa40 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_cfft_radix4_q15.o)
+                0x000000000000113c                riscv_radix4_butterfly_inverse_q15
  .text.riscv_bitreversal_16
-                0x0000000000001b58       0x7c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
-                0x0000000000001b58                riscv_bitreversal_16
- .text          0x0000000000001bd4       0x24 /home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a(muldi3.o)
-                0x0000000000001bd4                __mulsi3
-                0x0000000000001bf8                . = ALIGN (0x4)
+                0x0000000000001b7c       0x7c /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_bitreversal2.o)
+                0x0000000000001b7c                riscv_bitreversal_16
+ .text          0x0000000000001bf8       0x24 /home/taoshuo/tools/picorv32-gcc-10.2.0-1.2/bin/../lib/gcc/riscv-none-embed/10.2.0/rv32i/ilp32/libgcc.a(muldi3.o)
+                0x0000000000001bf8                __mulsi3
+                0x0000000000001c1c                . = ALIGN (0x4)
 
-.rodata         0x0000000000001bf8       0xa0
+.rodata         0x0000000000001c1c       0xa0
  *(.rodata .rodata.* .srodata .srodata.* .gnu.linkonce.r.*)
  .rodata.riscv_cfft_sR_q15_len32
-                0x0000000000001bf8       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
-                0x0000000000001bf8                riscv_cfft_sR_q15_len32
+                0x0000000000001c1c       0x10 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_const_structs.o)
+                0x0000000000001c1c                riscv_cfft_sR_q15_len32
  .rodata.riscvBitRevIndexTable_fixed_32
-                0x0000000000001c08       0x30 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
-                0x0000000000001c08                riscvBitRevIndexTable_fixed_32
+                0x0000000000001c2c       0x30 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+                0x0000000000001c2c                riscvBitRevIndexTable_fixed_32
  .rodata.twiddleCoef_32_q15
-                0x0000000000001c38       0x60 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
-                0x0000000000001c38                twiddleCoef_32_q15
-                0x0000000000001c98                . = ALIGN (0x4)
+                0x0000000000001c5c       0x60 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/libfft32_q15.a(riscv_common_tables.o)
+                0x0000000000001c5c                twiddleCoef_32_q15
+                0x0000000000001cbc                . = ALIGN (0x4)
 
-.rela.dyn       0x0000000000001c98        0x0
+.rela.dyn       0x0000000000001cbc        0x0
  .rela.text.start
-                0x0000000000001c98        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
+                0x0000000000001cbc        0x0 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/start.o
 
-.data           0x0000000000001c98        0x0
-                0x0000000000001c98                __data_start = .
+.data           0x0000000000001cbc        0x0
+                0x0000000000001cbc                __data_start = .
  *(.data .data.* .gnu.linkonce.d.*)
-                0x0000000000001c98                . = ALIGN (0x4)
-                0x0000000000002498                __global_pointer$ = (. + 0x800)
+                0x0000000000001cbc                . = ALIGN (0x4)
+                0x00000000000024bc                __global_pointer$ = (. + 0x800)
  *(.sdata .sdata.* .sdata2 .sdata2.*)
-                0x0000000000001c98                . = ALIGN (0x4)
-                0x0000000000001c98                __data_end = .
-                0x0000000000001c98                __image_end = .
+                0x0000000000001cbc                . = ALIGN (0x4)
+                0x0000000000001cbc                __data_end = .
+                0x0000000000001cbc                __image_end = .
 
-.bss            0x0000000000001c98       0x84
-                0x0000000000001c98                __bss_start = .
+.bss            0x0000000000001cbc       0x88
+                0x0000000000001cbc                __bss_start = .
  *(.sbss .sbss.* .sbss2 .sbss2.* .scommon)
+ .sbss.fft_cycles
+                0x0000000000001cbc        0x4 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000001cbc                fft_cycles
  .sbss.fft_example_done
-                0x0000000000001c98        0x4 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
-                0x0000000000001c98                fft_example_done
+                0x0000000000001cc0        0x4 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000001cc0                fft_example_done
  *(.bss .bss.* .gnu.linkonce.b.*)
  .bss.fft_samples
-                0x0000000000001c9c       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
-                0x0000000000001c9c                fft_samples
+                0x0000000000001cc4       0x80 /home/taoshuo/riscv-hetero-soc/build/fft32/sw/example_main.o
+                0x0000000000001cc4                fft_samples
  *(COMMON)
-                0x0000000000001d1c                . = ALIGN (0x4)
-                0x0000000000001d1c                __bss_end = .
-                0x0000000000001d1c                __static_end = .
+                0x0000000000001d44                . = ALIGN (0x4)
+                0x0000000000001d44                __bss_end = .
+                0x0000000000001d44                __static_end = .
 
 .stack          0x000000000000f000     0x1000
                 0x0000000000010000                . = (. + __stack_size)
