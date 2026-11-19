@@ -36,6 +36,20 @@ module tb_soc_fft;
     integer guard_cycle;
     bit saw_done = 1'b0;
 
+    // 分阶段计时：全部使用上升沿NBA更新前的CPU周期计数器值。
+    // 八个边界相邻相减，得到七个互不重叠的时间区间。
+    localparam PH_START = 0, PH_REQUEST = 1, PH_READ = 2, PH_INPUTS = 3;
+    localparam PH_WRITE_SETUP = 4, PH_LAST_WRITE = 5, PH_ACK = 6, PH_STOP = 7;
+    reg [63:0] phase_cycle [0:7];
+    reg [7:0] phase_seen = 8'b0;
+    integer counter_read_count = 0;
+    integer sram_read_requests = 0;
+    integer reads_after_inputs = 0;
+    integer input_captures = 0;
+    integer sram_write_requests = 0;
+    bit counter_read_this_edge = 0;
+    reg [31:0] counter_value_this_edge = 0;
+
     // 先在 TB 内加载并检查镜像，再逐字写入 DUT，分开定位文件读取与 RAM 赋值问题。
     reg [31:0] firmware_image [0:RAM_WORDS-1];
 
@@ -65,6 +79,135 @@ module tb_soc_fft;
         begin
             $display("[SOC FFT FAIL] mode=%s cycles=%0d %s", mode, cycles, message);
             $fatal(1, "%s", message);
+        end
+    endtask
+
+    task automatic mark_phase(input integer phase_index);
+        begin
+            if (phase_seen[phase_index])
+                fail($sformatf("Repeated performance boundary %0d", phase_index));
+            if (^dut.cpu.count_cycle === 1'bx)
+                fail("CPU cycle counter is unknown at a performance boundary");
+            phase_cycle[phase_index] = dut.cpu.count_cycle;
+            phase_seen[phase_index] = 1'b1;
+        end
+    endtask
+
+    // 在posedge后立即调用，必须位于sample_cycle的#1之前。
+    // 这些CPU状态、译码位和控制器寄存器在RTL中均通过NBA更新。
+    task automatic sample_performance;
+        begin
+            counter_read_this_edge = 0;
+            if (dut.system_resetn === 1'b1) begin
+                // 与picorv32_new实际执行reg_out <= count_cycle[31:0]的分支一致。
+                if (dut.cpu.cpu_state === dut.cpu.cpu_state_ld_rs1 &&
+                    dut.cpu.instr_rdcycle === 1'b1 && dut.cpu.instr_trap === 1'b0) begin
+                    counter_read_this_edge = 1;
+                    counter_value_this_edge = dut.cpu.count_cycle[31:0];
+                    case (counter_read_count)
+                        0: mark_phase(PH_START);
+                        1: mark_phase(PH_STOP);
+                        default: fail("Expected exactly two cycle-counter reads in this one-call example");
+                    endcase
+                    counter_read_count = counter_read_count + 1;
+                end
+
+                // 仅在两次计数器取值之间统计硬件事件；不对DUT施加任何激励。
+                if (mode == "hw" && counter_read_count == 1) begin
+                    if (dut.pcpi_valid === 1'b1 &&
+                        (dut.pcpi_insn & 32'hfe00707f) === 32'h4a00002b) begin
+                        if (!phase_seen[PH_REQUEST])
+                            mark_phase(PH_REQUEST);
+                        if (dut.pcpi_ready === 1'b1)
+                            mark_phase(PH_ACK);
+                    end
+
+                    // 物理SRAM请求与有效输入捕获分开统计，允许存在未使用的读请求。
+                    if (dut.fft_sram_en === 1'b1) begin
+                        if (dut.fft_sram_we === 4'b0000) begin
+                            if (!phase_seen[PH_READ])
+                                mark_phase(PH_READ);
+                            sram_read_requests = sram_read_requests + 1;
+                            if (phase_seen[PH_INPUTS])
+                                reads_after_inputs = reads_after_inputs + 1;
+                        end else if (dut.fft_sram_we === 4'b1111) begin
+                            sram_write_requests = sram_write_requests + 1;
+                            if (sram_write_requests > FFT_POINTS)
+                                fail("More than 32 FFT result writes in the measured call");
+                            if (sram_write_requests == FFT_POINTS)
+                                mark_phase(PH_LAST_WRITE);
+                        end else begin
+                            fail("Unexpected byte mask/X on the FFT SRAM port");
+                        end
+                    end
+
+                    // 本沿控制器将SRAM返回值写入fft_in[counter]。
+                    if (dut.fft.read_valid === 1'b1) begin
+                        if (input_captures >= FFT_POINTS)
+                            fail("More than 32 FFT input captures in the measured call");
+                        if (dut.fft.fft_counter !== input_captures[4:0])
+                            fail("FFT input capture indices are not sequential");
+                        input_captures = input_captures + 1;
+                        if (input_captures == FFT_POINTS)
+                            mark_phase(PH_INPUTS);
+                    end
+
+                    // 本沿进入COMPUTE_END并设置写使能；首个实际写入发生在下一沿。
+                    if (dut.fft.FFT_STATE === dut.fft.COMPUTE_MIDDLE &&
+                        dut.fft.FFT_NEXT === dut.fft.COMPUTE_END)
+                        mark_phase(PH_WRITE_SETUP);
+                end
+            end
+        end
+    endtask
+
+    task automatic report_performance;
+        integer i;
+        reg [63:0] observed_cycles;
+        reg [63:0] phase_length [0:6];
+        reg [63:0] phase_sum;
+        begin
+            if (counter_read_count != 2 || !phase_seen[PH_START] || !phase_seen[PH_STOP])
+                fail("Performance monitor did not observe exactly two cycle-counter reads");
+            if (phase_cycle[PH_STOP] < phase_cycle[PH_START])
+                fail("CPU cycle counter went backwards during the measured call");
+            observed_cycles = phase_cycle[PH_STOP] - phase_cycle[PH_START];
+            if (observed_cycles !== {32'd0, measured_fft_cycles})
+                fail($sformatf("Timing mismatch: observed counter delta=%0d firmware fft_cycles=%0d",
+                               observed_cycles, measured_fft_cycles));
+
+            $display("[SOC FFT TIMING] rdcycle_start=%0d rdcycle_stop=%0d delta=%0d fft_cycles=%0d",
+                     phase_cycle[PH_START], phase_cycle[PH_STOP], observed_cycles, measured_fft_cycles);
+            if (mode == "hw") begin
+                if (phase_seen !== 8'hff)
+                    fail($sformatf("Missing hardware phase boundaries: seen=0x%02h", phase_seen));
+                if (input_captures != FFT_POINTS || sram_write_requests != FFT_POINTS)
+                    fail($sformatf("Expected 32 input captures and 32 writes; captured=%0d written=%0d",
+                                   input_captures, sram_write_requests));
+                if (sram_read_requests < input_captures)
+                    fail("Fewer SRAM read requests than captured FFT inputs");
+                phase_sum = 0;
+                for (i = 0; i < 7; i = i + 1) begin
+                    if (phase_cycle[i+1] < phase_cycle[i])
+                        fail($sformatf("Performance boundary order is invalid at phase %0d", i));
+                    phase_length[i] = phase_cycle[i+1] - phase_cycle[i];
+                    phase_sum = phase_sum + phase_length[i];
+                end
+                if (phase_sum !== {32'd0, measured_fft_cycles})
+                    fail("Hardware phase sum does not match fft_cycles");
+
+                $display("[SOC FFT PHASE] cpu_before_request=%0d", phase_length[0]);
+                $display("[SOC FFT PHASE] request_to_first_read=%0d", phase_length[1]);
+                $display("[SOC FFT PHASE] input_read_and_capture=%0d", phase_length[2]);
+                $display("[SOC FFT PHASE] controller_compute_window=%0d", phase_length[3]);
+                $display("[SOC FFT PHASE] result_writeback=%0d", phase_length[4]);
+                $display("[SOC FFT PHASE] writeback_to_ack=%0d", phase_length[5]);
+                $display("[SOC FFT PHASE] ack_to_end_counter=%0d", phase_length[6]);
+                $display("[SOC FFT PHASE] total=%0d fft_cycles=%0d match=YES", phase_sum, measured_fft_cycles);
+                $display("[SOC FFT TRAFFIC] sram_read_requests=%0d input_captures=%0d sram_write_requests=%0d reads_after_inputs_ready=%0d",
+                         sram_read_requests, input_captures, sram_write_requests, reads_after_inputs);
+                $display("[SOC FFT] Phase values are cycles; compute_window is the controller wait window, not a measured minimum butterfly latency.");
+            end
         end
     endtask
 
@@ -248,8 +391,12 @@ module tb_soc_fft;
                 fail($sformatf("Timeout: pc=0x%08h done=0x%08h fft_done_count=%0d",
                                dut.cpu.reg_pc, completion_value, fft_done_count));
             @(posedge clk);
+            sample_performance();
             // 等待 RTL 非阻塞赋值及组合连线稳定，避免采样竞争。
             #1;
+            // 反查CPU本沿写出的rdcycle结果，验证观察边界与实际执行一致。
+            if (counter_read_this_edge && dut.cpu.reg_out !== counter_value_this_edge)
+                fail("Counter probe disagrees with the CPU rdcycle result");
             cycles = cycles + 1;
             if (dut.system_resetn !== 1'b0 && dut.system_resetn !== 1'b1)
                 fail("Internal reset is unknown");
@@ -313,6 +460,7 @@ module tb_soc_fft;
             if (errors != 0)
                 fail($sformatf("FFT result mismatch in %0d of 32 bins", errors));
 
+            report_performance();
             $display("[SOC FFT PERF] mode=%s fft_cycles=%0d", mode, measured_fft_cycles);
             $display("[SOC FFT PASS] mode=%s program_cycles=%0d fft_done_count=%0d",
                      mode, done_cycle, fft_done_count);

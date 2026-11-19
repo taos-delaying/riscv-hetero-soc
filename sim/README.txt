@@ -86,7 +86,7 @@ Vivado 会根据工程中的文件执行语法检查、展开并打开仿真界�
 六、查看波形
 ------------
 在 Scope 选择 tb_soc_fft，在 Objects 选择信号，右键 Add to Wave Window：
-  clk、resetn、completion_value、sample0_value、fft_done_count、cycles。
+  clk、resetn、completion_value、sample0_value、fft_cycles_value、fft_done_count、cycles。
 在 dut 层可添加 pcpi_valid/pcpi_wait/pcpi_ready、pcpi_insn、pcpi_rs1，
 以及 fft_sram_en/we/addr/wdata/rdata、trap、mem_fault。
 cpu 层的 reg_pc 表示 CPU 当前程序计数器；fft 层有 FFT_STATE 和 fft_counter。
@@ -125,6 +125,63 @@ RAM copy failed：本地镜像已经通过检查，但写入 SRAM 后回读不�
 此前脚本运行的已有日志显示：语法检查和展开已完成，但 XSim 报
 “Expected a switch but found s”，说明当次在解析启动参数时退出，测试尚未执行。
 当前手动流程已取消脚本和 plusargs 依赖；仍需你实际启动仿真确认运行结果。
+
+九、分解硬件FFT调用的周期
+-------------------------
+沿用已经打印 fft_cycles 的两版固件；本次只更新测试台及本说明，无需重新编译C程序。
+测试台仍需MAP中的fft_cycles符号。分析硬件版时把 FIRMWARE_IMPL 设为 "hw"，
+关闭当前仿真，再次 Run Behavioral Simulation -> Run All。
+本监测器针对当前“读取计数器、调用一次FFT、再次读取计数器”的例程。
+
+计时方式：在时钟上升沿、RTL非阻塞赋值更新之前读取CPU的count_cycle。
+当CPU处于cpu_state_ld_rs1并执行instr_rdcycle时，捕获计数器实际取值，
+随后于上升沿后1ns核对CPU的reg_out。两次取值之差必须等于RAM中的fft_cycles。
+这不会改变CPU、FFT或SRAM的任何输入和状态，不会给被测硬件增加运行周期。
+
+硬件模式记录8个时刻，按相邻时刻差打印7项，单位均为周期：
+
+输出字段                      开始 -> 结束
+cpu_before_request            第一次计数器取值 -> 控制器首次采样到FFT32请求
+request_to_first_read         首次FFT32请求 -> SRAM采样首个读请求
+input_read_and_capture        首个读请求 -> 控制器捕获第32个有效输入
+controller_compute_window     第32个输入捕获 -> 控制器进入COMPUTE_END并设置写使能
+result_writeback              设置写使能 -> SRAM采样第32次结果写入
+writeback_to_ack              第32次写入 -> CPU在上升沿采样valid&&ready完成握手
+ack_to_end_counter            完成握手 -> 第二次计数器实际取值
+
+这些区间覆盖两次计数器取值之间的时间，不重叠，不留空隙；相邻时间戳作差，
+不要为每个区间额外加1。result_writeback包含写使能设置后等待首个写入沿的时间。
+controller_compute_window是控制器安排的计算等待窗口；当前FFT核没有独立的
+输出有效握手，不能仅凭这个数字证明纯蝶形电路的最短计算延迟。
+
+成功时先打印 [SOC FFT TIMING]，然后打印7行 [SOC FFT PHASE]，最后打印：
+  [SOC FFT PHASE] total=实际总和 fft_cycles=固件测量值 match=YES
+这两个值必须完全相等。对之前测得104周期的同一硬件固件，预期两者仍为104；
+本次未代你运行，具体各阶段数字以你重新仿真的输出为准。
+原来的 [SOC FFT PERF] 与 [SOC FFT PASS] 输出也保留。
+软件版只做两次计数器差值的核对，不打印硬件阶段分解。
+
+另外输出 [SOC FFT TRAFFIC]：
+  sram_read_requests       两次计数器取值之间的物理SRAM读请求数
+  input_captures           由read_valid使能的有效输入捕获数，当前例程应为32
+  sram_write_requests      实际SRAM全字写入数，当前例程应为32
+  reads_after_inputs_ready 最后一次有效输入捕获之后，后续上升沿上的读请求数
+
+TRAFFIC是事务次数，不是额外时间，不能叠加到7个阶段的周期总和中。
+读请求和有效输入捕获未必一一对应：当前状态机在最后输入捕获沿仍可能发出
+未使用的下一地址读请求，写回后回到IDLE时译码信号也可能尚未清零而继续发读。
+因此测试台检查捕获32个输入、写入32个结果，但不强制物理读请求只能是32次。
+最后输入捕获同一沿的读请求不计入reads_after_inputs_ready，它属于之前的取数阶段。
+
+原有“FFT completion pulse at cycle ...”在上升沿后1ns观察完成电平出现；
+新ACK边界记录CPU在上升沿真正采样该电平的时刻，物理上通常相隔一拍。
+新时间戳使用CPU计数器，原日志使用TB的cycles，两者复位释放基准也不同，
+不应直接相减；阶段计算全部统一使用CPU计数器。
+
+波形中可以添加 phase_cycle、phase_seen、counter_read_count、sram_read_requests、
+input_captures、sram_write_requests、reads_after_inputs。phase_cycle[0..7]按上表
+从第一次计数器取值到第二次取值排列。若以后改动CPU或控制器内部状态机，
+需要同步检查测试台的观察条件；当前监测仅面向现有RTL。
 
 官方操作参考
 ------------
