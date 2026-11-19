@@ -1,6 +1,7 @@
 /build/
 /.Xil/
 /xsim.dir/
+.vscode/
 *.jou
 *.log
 *.pb
